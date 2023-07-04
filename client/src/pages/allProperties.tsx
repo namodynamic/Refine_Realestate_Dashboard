@@ -146,7 +146,15 @@ const AllProperties = () => {
           icon={<Add />}
         />
       </Stack>
-      <Box mt="20px" sx={{ display: "flex", flexwrap: "wrap", gap: 3 }}>
+
+      <Box
+        mt="20px"
+        sx={{
+          display: "flex",
+          flexwrap: "wrap",
+          gap: 3,
+        }}
+      >
         {allProperties.map((property) => (
           <PropertyCard
             key={property._id}
@@ -158,6 +166,7 @@ const AllProperties = () => {
           />
         ))}
       </Box>
+
       {allProperties.length > 0 && (
         <Box display="flex" gap={2} mt={3} flexWrap="wrap">
           <CustomButton

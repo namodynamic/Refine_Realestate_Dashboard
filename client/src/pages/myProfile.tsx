@@ -11,8 +11,6 @@ const MyProfile = () => {
     id: userId,
   });
 
-  console.log("user?.userid:", userId);
-  console.log("data:", data);
 
   const myProfile = data?.data ?? {};
 

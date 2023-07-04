@@ -19,9 +19,11 @@ function checkImage(url: any) {
 
 const PropertyDetails = () => {
   const navigate = useNavigate();
-  const { data: user } = useGetIdentity({
-    v3LegacyAuthProviderCompatible: true,
-  });
+  const { data: user } = useGetIdentity<{
+    id: number;
+    fullName: string;
+    email: string;
+  }>();
   const { id } = useParams();
   const { mutate } = useDelete();
   const { queryResult } = useShow();
@@ -33,7 +35,7 @@ const PropertyDetails = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong!</div>;
 
-  const isCurrentUser = user?.id === propertyDetails.creator.id;
+  const isCurrentUser = user?.email === propertyDetails.creator.email;
 
   const handleDeleteProperty = () => {
     const response = window.confirm(

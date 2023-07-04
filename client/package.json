@@ -19,6 +19,7 @@
     "@refinedev/simple-rest": "^4.0.0",
     "apexcharts": "^3.41.0",
     "axios": "^0.26.1",
+    "cross-env": "^7.0.3",
     "react": "^18.0.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.0.0",
@@ -38,8 +39,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "dev": "refine start",
-    "build": "refine build",
+    "dev": "cross-env DISABLE_ESLINT_PLUGIN=true refine start",
+    "build": "cross-env DISABLE_ESLINT_PLUGIN=true refine build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "refine": "refine"

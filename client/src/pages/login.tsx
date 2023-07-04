@@ -4,15 +4,12 @@ import { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+
 // import { ThemedTitleV2 } from "@refinedev/mui";
 
-import { refine } from "../assets";
+import { logo } from "../assets";
 
 import { CredentialResponse } from "../interfaces/google";
-
-// Todo: Update your Google Client ID here
-const GOOGLE_CLIENT_ID =
-  "77212407468-b1nbvq5hpqefi2rn91o3n01lho9l4kmt.apps.googleusercontent.com";
 
 export const Login: React.FC = () => {
   const { mutate: login } = useLogin<CredentialResponse>();
@@ -28,7 +25,7 @@ export const Login: React.FC = () => {
       try {
         window.google.accounts.id.initialize({
           ux_mode: "popup",
-          client_id: GOOGLE_CLIENT_ID,
+          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
@@ -59,12 +56,13 @@ export const Login: React.FC = () => {
     >
       <Box
         display="flex"
+        alignItems="center"
         gap="36px"
         justifyContent="center"
         flexDirection="column"
       >
         <div>
-          <img src={refine} alt="Logo" />
+          <img src={logo} alt="Logo" />
         </div>
 
         <GoogleButton />

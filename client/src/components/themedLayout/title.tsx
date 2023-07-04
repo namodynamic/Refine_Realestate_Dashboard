@@ -5,21 +5,16 @@ import SvgIcon from "@mui/material/SvgIcon";
 import Typography from "@mui/material/Typography";
 import type { RefineLayoutThemedTitleProps } from "@refinedev/mui";
 
-import {  refine } from "assets";
+
+
+import { logo} from "assets";
 
 const defaultText = "MyCASA..";
 
 const defaultIcon = (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    data-testid="refine-logo"
-  >
-    <image href={refine} width="140px" />
-  </svg>
+  
+    <image href={logo} width='24px' /> 
+    
 );
 
 export const ThemedTitleV2: React.FC<RefineLayoutThemedTitleProps> = ({
@@ -31,6 +26,7 @@ export const ThemedTitleV2: React.FC<RefineLayoutThemedTitleProps> = ({
   const routerType = useRouterType();
   const Link = useLink();
   const { Link: LegacyLink } = useRouterContext();
+
 
   const ActiveLink = routerType === "legacy" ? LegacyLink : Link;
 
@@ -61,6 +57,7 @@ export const ThemedTitleV2: React.FC<RefineLayoutThemedTitleProps> = ({
           {text}
         </Typography>
       )}
+  
     </MuiLink>
   );
 };
